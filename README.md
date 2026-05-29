@@ -1,6 +1,6 @@
-# ArrowSyntaxRendering
-
 [![CI](https://github.com/Gabriel-Darbord/arrow-syntax-rendering/actions/workflows/ci.yml/badge.svg)](https://github.com/Gabriel-Darbord/arrow-syntax-rendering/actions/workflows/ci.yml)
+
+# ArrowSyntaxRendering
 
 ArrowSyntaxRendering is a tiny Pharo package that renders Smalltalk assignment and return tokens as arrows in Rubric code editors.
 
@@ -36,10 +36,4 @@ Enable or disable it from the Pharo settings browser under code browsing, or eva
 ASRArrowSyntaxInstaller enable.
 ASRArrowSyntaxInstaller disable.
 ASRArrowSyntaxInstaller toggle.
-```
-
-## Test
-
-```smalltalk
-ASRArrowSyntaxRenderingTest suite run.
 ```
