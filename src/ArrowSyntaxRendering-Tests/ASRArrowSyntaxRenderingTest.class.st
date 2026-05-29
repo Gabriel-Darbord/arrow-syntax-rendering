@@ -44,7 +44,13 @@ ASRArrowSyntaxRenderingTest >> newSmalltalkMethodDecoratorForObject [
 { #category : 'fixtures' }
 ASRArrowSyntaxRenderingTest >> parsedSampleMethod [
 
-	^ OCParser parseFaultyMethod: self sampleMethodSource
+	^ self parserClass parseFaultyMethod: self sampleMethodSource
+]
+
+{ #category : 'fixtures' }
+ASRArrowSyntaxRenderingTest >> parserClass [
+
+	^ Smalltalk globals at: #OCParser ifAbsent: [ RBParser ]
 ]
 
 { #category : 'fixtures' }
@@ -92,9 +98,13 @@ ASRArrowSyntaxRenderingTest >> testArrowStylerDoesNotForceLightThemeDefaultColor
 { #category : 'tests' }
 ASRArrowSyntaxRenderingTest >> testArrowStylerUsesActiveShoutStyleTable [
 
+	ASRArrowSyntaxTextStyler hasShoutStyleTableName ifTrue: [
+			self
+				assert: ASRArrowSyntaxTextStyler styleTableName
+				equals: SHRBTextStyler styleTableName ].
 	self
-		assert: ASRArrowSyntaxTextStyler styleTableName
-		equals: SHRBTextStyler styleTableName.
+		assert: ASRArrowSyntaxTextStyler styleTable
+		equals: SHRBTextStyler styleTable.
 	self
 		assert: (ASRArrowSyntaxTextStyler attributesFor: #default)
 		equals: (SHRBTextStyler attributesFor: #default).

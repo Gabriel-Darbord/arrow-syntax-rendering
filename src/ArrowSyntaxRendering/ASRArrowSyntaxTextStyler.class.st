@@ -15,6 +15,12 @@ ASRArrowSyntaxTextStyler class >> attributesFor: aSymbol [
 	^ SHRBTextStyler attributesFor: aSymbol
 ]
 
+{ #category : 'private' }
+ASRArrowSyntaxTextStyler class >> hasShoutStyleTableName [
+
+	^ SHRBTextStyler class includesSelector: #styleTableName
+]
+
 { #category : 'initialization' }
 ASRArrowSyntaxTextStyler class >> resetTextAttributesCaches [
 
@@ -30,7 +36,9 @@ ASRArrowSyntaxTextStyler class >> styleTable [
 { #category : 'styles' }
 ASRArrowSyntaxTextStyler class >> styleTableName [
 
-	^ SHRBTextStyler styleTableName
+	self hasShoutStyleTableName ifTrue: [
+		^ SHRBTextStyler styleTableName ].
+	^ 'Legacy'
 ]
 
 { #category : 'accessing' }
