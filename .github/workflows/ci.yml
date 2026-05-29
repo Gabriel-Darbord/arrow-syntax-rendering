@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.smalltalk }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    strategy:
+      fail-fast: false
+      matrix:
+        smalltalk:
+          - Pharo64-12
+          - Pharo64-13
+          - Pharo64-14
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up smalltalkCI
+        id: smalltalkci
+        uses: hpi-swa/setup-smalltalkCI@v1
+        with:
+          smalltalk-image: ${{ matrix.smalltalk }}
+
+      - name: Run tests
+        shell: bash
+        run: smalltalkci -s "${{ steps.smalltalkci.outputs.smalltalk-image }}" .smalltalk.ston
