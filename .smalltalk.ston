@@ -1,0 +1,19 @@
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'ArrowSyntaxRendering',
+      #directory : 'src',
+      #load : [ 'development' ],
+      #ignoreImage : true,
+      #onConflict : #useIncoming,
+      #onUpgrade : #useIncoming,
+      #platforms : [ #pharo ]
+    }
+  ],
+  #testing : {
+    #packages : [
+      'ArrowSyntaxRendering-Tests'
+    ],
+    #failOnZeroTests : true
+  }
+}
