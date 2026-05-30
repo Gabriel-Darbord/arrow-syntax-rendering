@@ -2,7 +2,7 @@ SmalltalkCISpec {
   #loading : [
     SCIMetacelloLoadSpec {
       #baseline : 'ArrowSyntaxRendering',
-      #repository : 'tonel://src',
+      #directory : 'src',
       #load : [ 'development' ],
       #ignoreImage : true,
       #onConflict : #useIncoming,
