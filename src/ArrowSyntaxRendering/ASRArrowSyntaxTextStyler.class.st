@@ -106,8 +106,7 @@ ASRArrowSyntaxTextStyler >> defaultTextStyle [
 { #category : 'private' }
 ASRArrowSyntaxTextStyler >> intervalFrom: start to: stop fitsIn: aText [
 
-	^ start isInteger and: [
-		  stop isInteger and: [ start >= 1 and: [ stop <= aText size ] ] ]
+	^ start >= 1 and: [ start <= stop and: [ stop <= aText size ] ]
 ]
 
 { #category : 'private' }

@@ -17,18 +17,9 @@ RubShoutStylerDecorator >> styler [
 	"Answer the Shout styler, optionally using arrow rendering when ASRArrowSyntaxInstaller enables it."
 
 	^ styler ifNil: [
-			  | selectedClassOrMeta |
-			  selectedClassOrMeta := nil.
-			  styler := (self model isNotNil and: [
-				             (selectedClassOrMeta := self model
-					                                     selectedClassOrMetaClass)
-					             isNotNil ])
-				            ifTrue: [
-						            ASRArrowSyntaxInstaller
-							            stylerForDecorator: self
-							            selectedClassOrMetaClass: selectedClassOrMeta ]
-				            ifFalse: [
-						            ASRArrowSyntaxInstaller
-							            stylerForDecorator: self
-							            selectedClassOrMetaClass: nil ] ]
+			  styler := ASRArrowSyntaxInstaller
+				            stylerForDecorator: self
+				            selectedClassOrMetaClass:
+				            (self model ifNotNil: [ :theModel |
+					             theModel selectedClassOrMetaClass ]) ]
 ]
