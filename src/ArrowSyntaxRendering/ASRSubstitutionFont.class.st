@@ -246,8 +246,8 @@ ASRSubstitutionFont >> installOn: aDisplayContext foregroundColor: foregroundCol
 { #category : 'measuring' }
 ASRSubstitutionFont >> kerningLeft: leftCharacter right: rightCharacter [
 
-	(self hides: leftCharacter) ifTrue: [ ^ 0 ].
 	rightCharacter ifNil: [ ^ 0 ].
+	(self hides: leftCharacter) ifTrue: [ ^ 0 ].
 	(self hides: rightCharacter) ifTrue: [ ^ 0 ].
 	^ self baseFont
 		  kerningLeft: (self displayCharacterFor: leftCharacter)

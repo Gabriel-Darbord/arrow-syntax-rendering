@@ -121,6 +121,6 @@ ASRArrowSyntaxTextStyler >> style: aText ast: ast [
 { #category : 'private' }
 ASRArrowSyntaxTextStyler >> textStyleForArrowRendering [
 
-	view ifNotNil: [ ^ view textStyle ].
-	^ self defaultTextStyle
+	view ifNil: [ ^ self defaultTextStyle ].
+	^ view textStyle
 ]
